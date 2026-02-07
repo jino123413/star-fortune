@@ -1,7 +1,7 @@
 import React from 'react';
 import { ZodiacSign } from '../types';
 import { getZodiacSigns } from '../utils/fortune-engine';
-import { ConstellationIcon, StreakFireIcon, ZodiacSignIcons } from './BrandIcons';
+import { ZodiacSignIcons } from './BrandIcons';
 
 interface ZodiacSelectorProps {
   streak: number;
@@ -23,31 +23,22 @@ const ZodiacSelector: React.FC<ZodiacSelectorProps> = ({ streak, onSelect, lastS
 
   return (
     <div className="selector-screen">
-      {/* Stars Background */}
-      <div className="stars-bg">
-        {Array.from({ length: 40 }, (_, i) => (
-          <div
-            key={i}
-            className={`star ${i % 5 === 0 ? 'large' : ''}`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              '--delay': `${Math.random() * 4}s`,
-              '--duration': `${2 + Math.random() * 3}s`,
-              '--max-opacity': `${0.4 + Math.random() * 0.6}`,
-            } as React.CSSProperties}
-          />
-        ))}
-      </div>
-
       {/* Header */}
       <div className="selector-header">
-        <div className="selector-header-icon"><ConstellationIcon size={32} /></div>
+        <img
+          src="/mascot/mascot-main.png"
+          alt="별여우"
+          className="home-mascot"
+        />
         <h1 className="selector-title">별이 뭐래</h1>
         <p className="selector-date">{getTodayDate()}</p>
         {streak > 0 && (
           <div className="streak-badge">
-            <StreakFireIcon size={16} />
+            <img
+              src="/mascot/streak-fire-xs.png"
+              alt="스트릭"
+              className="streak-mascot-xs"
+            />
             <span>{streak}일 연속 방문</span>
           </div>
         )}
@@ -56,7 +47,11 @@ const ZodiacSelector: React.FC<ZodiacSelectorProps> = ({ streak, onSelect, lastS
       {/* Zodiac Grid */}
       <div className="zodiac-section">
         <p className="zodiac-section-title">
-          <ConstellationIcon size={18} />
+          <img
+            src="/mascot/zodiac-wheel-xs.png"
+            alt=""
+            className="section-mascot-xs"
+          />
           나의 별자리를 선택하세요
         </p>
         <div className="zodiac-grid">

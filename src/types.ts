@@ -1,4 +1,4 @@
-export type Screen = 'selector' | 'result';
+export type Screen = 'selector' | 'loading' | 'result';
 
 export interface ZodiacSign {
   id: string;

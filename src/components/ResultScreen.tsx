@@ -3,15 +3,6 @@ import { FortuneResult, ZodiacSign } from '../types';
 import { getZodiacSigns } from '../utils/fortune-engine';
 import {
   BackArrowIcon,
-  ScoreChartIcon,
-  LuckySparkleIcon,
-  LuckyColorIcon,
-  LuckyNumberIcon,
-  LuckyCompassIcon,
-  LuckyClockIcon,
-  AdviceIcon,
-  CompatibilityIcon,
-  LockIcon,
   ZodiacSignIcons,
 } from './BrandIcons';
 
@@ -24,6 +15,30 @@ interface ResultScreenProps {
   adLoading: boolean;
 }
 
+const GRADE_MASCOT: Record<string, string> = {
+  S: '/mascot/grade-s.png',
+  A: '/mascot/grade-a.png',
+  B: '/mascot/grade-b.png',
+  C: '/mascot/grade-c.png',
+  D: '/mascot/grade-d.png',
+};
+
+const gradeColors: Record<string, string> = {
+  S: '#F59E0B',
+  A: '#1A237E',
+  B: '#3B82F6',
+  C: '#9CA3AF',
+  D: '#6B7280',
+};
+
+const GRADE_LABELS: Record<string, string> = {
+  S: '최고의 하루',
+  A: '좋은 하루',
+  B: '평온한 하루',
+  C: '주의하는 하루',
+  D: '재충전의 하루',
+};
+
 const ResultScreen: React.FC<ResultScreenProps> = ({
   result,
   signId,
@@ -35,48 +50,15 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
   const signs = getZodiacSigns();
   const currentSign = signs.find((s: ZodiacSign) => s.id === signId);
 
-  const gradeColors: Record<string, string> = {
-    S: '#F59E0B',
-    A: '#6366F1',
-    B: '#3B82F6',
-    C: '#6B7280',
-    D: '#4B5563',
-  };
-
-  const gradeLabels: Record<string, string> = {
-    S: '최고의 하루',
-    A: '좋은 하루',
-    B: '평온한 하루',
-    C: '주의하는 하루',
-    D: '재충전의 하루',
-  };
-
   const getScoreColor = (value: number): string => {
     if (value >= 80) return 'var(--gold)';
-    if (value >= 60) return 'var(--primary-light)';
+    if (value >= 60) return 'var(--primary)';
     if (value >= 40) return 'var(--blue)';
     return 'var(--text-tertiary)';
   };
 
   return (
     <div className="result-screen">
-      {/* Stars Background */}
-      <div className="stars-bg">
-        {Array.from({ length: 30 }, (_, i) => (
-          <div
-            key={i}
-            className={`star ${i % 6 === 0 ? 'large' : ''}`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              '--delay': `${Math.random() * 4}s`,
-              '--duration': `${2 + Math.random() * 3}s`,
-              '--max-opacity': `${0.3 + Math.random() * 0.5}`,
-            } as React.CSSProperties}
-          />
-        ))}
-      </div>
-
       {/* Header */}
       <div className="result-header">
         <button className="back-button" onClick={onBack}>
@@ -99,11 +81,21 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
             <span className="result-sign-date">{currentSign?.dateRange}</span>
           </div>
 
-          <div className={`result-grade ${result.grade}`}>
+          {/* Grade Mascot */}
+          <img
+            src={GRADE_MASCOT[result.grade]}
+            alt={GRADE_LABELS[result.grade]}
+            className="grade-mascot"
+          />
+
+          <div
+            className="result-grade-badge"
+            style={{ background: gradeColors[result.grade] }}
+          >
             {result.grade}
           </div>
           <div className="result-grade-label" style={{ color: gradeColors[result.grade] }}>
-            {gradeLabels[result.grade]}
+            {GRADE_LABELS[result.grade]}
           </div>
 
           <h2 className="result-title">{result.title}</h2>
@@ -113,7 +105,7 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
         {/* Scores Section */}
         <div className="scores-section">
           <div className="scores-title">
-            <ScoreChartIcon size={18} />
+            <img src="/mascot/star-wand-xs.png" alt="" className="section-mascot-xs" />
             오늘의 운세 점수
           </div>
           {result.scores.map((score, idx) => (
@@ -136,27 +128,35 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
         {/* Lucky Items */}
         <div className="lucky-section">
           <div className="lucky-title">
-            <LuckySparkleIcon size={18} />
+            <img src="/mascot/lucky-charm-xs.png" alt="" className="section-mascot-xs" />
             행운 아이템
           </div>
           <div className="lucky-grid">
             <div className="lucky-item">
-              <div className="lucky-item-icon"><LuckyColorIcon size={24} /></div>
+              <div className="lucky-item-icon">
+                <img src="/mascot/lucky-charm-xs.png" alt="" className="section-mascot-xs" />
+              </div>
               <div className="lucky-item-label">행운의 색</div>
               <div className="lucky-item-value">{result.luckyItems.color}</div>
             </div>
             <div className="lucky-item">
-              <div className="lucky-item-icon"><LuckyNumberIcon size={24} /></div>
+              <div className="lucky-item-icon">
+                <img src="/mascot/crystal-gaze-xs.png" alt="" className="section-mascot-xs" />
+              </div>
               <div className="lucky-item-label">행운의 숫자</div>
               <div className="lucky-item-value">{result.luckyItems.number}</div>
             </div>
             <div className="lucky-item">
-              <div className="lucky-item-icon"><LuckyCompassIcon size={24} /></div>
+              <div className="lucky-item-icon">
+                <img src="/mascot/zodiac-wheel-xs.png" alt="" className="section-mascot-xs" />
+              </div>
               <div className="lucky-item-label">행운의 방향</div>
               <div className="lucky-item-value">{result.luckyItems.direction}</div>
             </div>
             <div className="lucky-item">
-              <div className="lucky-item-icon"><LuckyClockIcon size={24} /></div>
+              <div className="lucky-item-icon">
+                <img src="/mascot/mascot-main-xs.png" alt="" className="section-mascot-xs" />
+              </div>
               <div className="lucky-item-label">행운의 시간</div>
               <div className="lucky-item-value">{result.luckyItems.time}</div>
             </div>
@@ -166,7 +166,9 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
         {/* Advice */}
         <div className="advice-section">
           <div className="advice-card">
-            <div className="advice-icon"><AdviceIcon size={24} /></div>
+            <div className="advice-icon">
+              <img src="/mascot/star-wand-xs.png" alt="" style={{ width: 24, height: 24 }} />
+            </div>
             <div className="advice-text">{result.advice}</div>
           </div>
         </div>
@@ -177,7 +179,7 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
             {premiumUnlocked ? (
               <div className="premium-unlocked-content">
                 <div className="premium-content-title">
-                  <CompatibilityIcon size={18} />
+                  <img src="/mascot/heart-pair-xs.png" alt="" style={{ width: 20, height: 20 }} />
                   궁합 별자리
                 </div>
                 <p className="premium-content-text">
@@ -187,7 +189,7 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
             ) : (
               <>
                 <div className="premium-locked-icon">
-                  <LockIcon size={28} />
+                  <img src="/mascot/premium-key-sm.png" alt="" className="section-mascot-sm" />
                 </div>
                 <div className="premium-locked-title">궁합 별자리 보기</div>
                 <div className="premium-locked-desc">
@@ -209,7 +211,6 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
         {/* Action Buttons */}
         <div className="button-group">
           <button className="btn-primary" onClick={onBack}>
-            <BackArrowIcon size={18} />
             다른 별자리 보기
           </button>
         </div>

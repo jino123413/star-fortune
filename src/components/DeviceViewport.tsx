@@ -19,7 +19,7 @@ export function DeviceViewport() {
     for (const [key, value] of Object.entries(styles)) {
       document.documentElement.style.setProperty(key, value);
     }
-  }, []);
+  }, [isIOS]);
 
   return null;
 }
