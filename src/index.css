@@ -85,216 +85,236 @@ body {
   overflow: hidden;
 }
 
-/* ==================== Mascot Images ==================== */
-
-/* Mascot Hero (home screen) */
-.home-mascot {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 16px;
-  animation: mascotFloat 3s ease-in-out infinite;
-  filter: drop-shadow(0 6px 20px rgba(26, 35, 126, 0.15));
-}
-
-/* Loading screen mascot */
-.loading-mascot {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 20px;
-  animation: mascotBounce 1.2s ease-in-out infinite;
-  filter: drop-shadow(0 4px 16px rgba(26, 35, 126, 0.15));
-}
-
-/* Grade mascot (result card) */
-.grade-mascot {
-  width: 88px;
-  height: 88px;
-  margin: 0 auto 12px;
-  animation: fadeIn 0.6s ease;
-  filter: drop-shadow(0 4px 12px rgba(26, 35, 126, 0.12));
-}
-
-/* Section title mascot icons */
-.section-mascot {
-  width: 28px;
-  height: 28px;
-  vertical-align: middle;
-}
-
-/* Section title mascot small */
-.section-mascot-sm {
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
-}
-
-/* Section title mascot extra-small (legacy alias) */
-.section-mascot-xs {
-  width: 28px;
-  height: 28px;
-  vertical-align: middle;
-  filter: drop-shadow(0 1px 3px rgba(26, 35, 126, 0.10));
-}
-
-/* Streak badge mascot */
-.streak-mascot {
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-}
-
-/* Streak badge mascot extra-small (legacy alias) */
-.streak-mascot-xs {
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-}
-
-/* Premium lock mascot */
-.premium-mascot {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 12px;
-}
-
-/* Premium unlock mascot (small) */
-.premium-mascot-xs {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-}
-
 /* ==================== Selector Screen ==================== */
 
 .selector-screen {
-  padding: 24px 20px;
   animation: fadeIn 0.3s ease;
   position: relative;
   z-index: 1;
 }
 
-.selector-header {
+/* ==================== Hero Banner (Selector) ==================== */
+
+.hero-banner {
+  background: var(--primary-dark);
+  padding: 40px 20px 32px;
   text-align: center;
-  padding: 32px 0 28px;
+  border-radius: 0 0 24px 24px;
+  position: relative;
+  overflow: hidden;
 }
 
-.selector-title {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: -0.5px;
-  margin-top: 16px;
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(124, 77, 255, 0.08);
 }
 
-.selector-date {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-top: 6px;
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 213, 79, 0.06);
 }
 
-.streak-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 12px;
-  padding: 6px 14px;
-  background: rgba(255, 213, 79, 0.10);
-  border: 1px solid rgba(255, 213, 79, 0.25);
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #D4A017;
+.hero-mascot {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 12px;
+  animation: mascotFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 16px rgba(255, 255, 255, 0.15));
 }
 
-/* ==================== Zodiac Grid ==================== */
-
-.zodiac-section {
-  margin-top: 8px;
-}
-
-.zodiac-section-title {
+.hero-quote {
   font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.hero-date {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hero-streak {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold);
+  background: rgba(255, 213, 79, 0.12);
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+/* ==================== MY Sign Quick Card ==================== */
+
+.my-sign-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 40px);
+  margin: 20px auto 0;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 2px solid var(--accent-light);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font);
+  color: var(--text-primary);
+  box-shadow: 0 2px 12px rgba(124, 77, 255, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  appearance: none;
+}
+
+.my-sign-card:active {
+  transform: scale(0.98);
+  box-shadow: var(--shadow-glow);
+}
+
+.my-sign-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.my-badge {
+  font-size: 10px;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: var(--accent);
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.my-sign-icon {
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+}
+
+.my-sign-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.my-sign-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.my-sign-date {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.my-sign-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.my-element {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--surface);
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+.my-cta {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ==================== Element Groups ==================== */
+
+.element-group {
+  padding: 0 20px;
+  margin-top: 24px;
+}
+
+.element-title {
+  font-size: 14px;
   font-weight: 700;
   color: var(--text-secondary);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.zodiac-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+.element-icon {
+  color: var(--primary);
+  display: flex;
+  align-items: center;
 }
 
-.zodiac-card {
-  position: relative;
+.element-signs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.sign-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 8px;
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
-  padding: 16px 8px 12px;
-  text-align: center;
   cursor: pointer;
-  transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  appearance: none;
   font-family: var(--font);
   color: var(--text-primary);
   box-shadow: var(--shadow);
+  transition: transform 0.15s ease, border-color 0.2s ease;
+  appearance: none;
 }
 
-.zodiac-card:active {
+.sign-chip:active {
   transform: scale(0.95);
   border-color: var(--primary);
-  box-shadow: var(--shadow-glow);
 }
 
-.zodiac-card.last-selected {
-  border-color: var(--primary-light);
-  box-shadow: 0 0 8px rgba(26, 35, 126, 0.15);
-}
-
-.last-badge {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  font-size: 9px;
-  font-weight: 800;
-  color: #FFFFFF;
-  background: var(--primary);
-  padding: 2px 5px;
-  border-radius: 4px;
-  letter-spacing: 0.5px;
-}
-
-.zodiac-card-emoji {
-  font-size: 32px;
-  line-height: 1;
-  margin-bottom: 6px;
+.sign-chip-icon {
   color: var(--primary);
+  display: flex;
+  align-items: center;
 }
 
-.zodiac-card-name {
-  font-size: 13px;
-  font-weight: 700;
+.sign-chip-name {
+  font-size: 12px;
+  font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 2px;
 }
 
-.zodiac-card-date {
+.sign-chip-date {
   font-size: 10px;
   color: var(--text-tertiary);
-  margin-bottom: 4px;
-}
-
-.zodiac-card-element {
-  display: inline-block;
-  font-size: 9px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  background: var(--surface);
-  padding: 2px 8px;
-  border-radius: 10px;
 }
 
 /* ==================== Selector Footer ==================== */
@@ -315,37 +335,62 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100dvh;
-  background: var(--bg);
+  background: var(--primary-dark);
   animation: fadeIn 0.3s ease;
 }
 
-.loading-text {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
+.loading-mascot {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 24px;
+  filter: drop-shadow(0 4px 16px rgba(255, 255, 255, 0.2));
 }
 
-.loading-dots {
+.loading-mascot.fly-animation {
+  animation: flyAcross 1.8s ease-in-out;
+}
+
+.loading-sign {
   display: flex;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.loading-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 24px;
+}
+
+.star-dots {
+  display: flex;
+  gap: 8px;
   justify-content: center;
 }
 
-.loading-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--primary);
-  animation: dotPulse 1.4s ease-in-out infinite;
+.star-dot {
+  font-size: 16px;
+  color: var(--gold);
+  animation: starTwinkle 1.4s ease-in-out infinite;
 }
 
-.loading-dot:nth-child(2) {
+.star-dot:nth-child(2) {
   animation-delay: 0.2s;
+  color: rgba(255, 255, 255, 0.3);
 }
 
-.loading-dot:nth-child(3) {
+.star-dot:nth-child(3) {
   animation-delay: 0.4s;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.star-dot:nth-child(4) {
+  animation-delay: 0.6s;
 }
 
 /* ==================== Result Screen ==================== */
@@ -358,180 +403,148 @@ body {
   background: var(--bg);
 }
 
-.result-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  background: var(--bg-card);
-  border-bottom: 1px solid var(--border);
+/* result-header removed — Toss navbar handles back + title */
+
+/* ==================== Constellation Hero (Result) ==================== */
+
+.constellation-hero {
+  background: var(--primary-dark);
+  padding: 32px 20px 28px;
+  text-align: center;
+  position: relative;
+  animation: popIn 0.5s ease;
 }
 
-.back-button {
-  width: 36px;
-  height: 36px;
-  border: none;
-  background: none;
+.constellation-hero::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+  background: rgba(124, 77, 255, 0.06);
+}
+
+.hero-sign-icon {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  cursor: pointer;
-  color: var(--text-primary);
+}
+
+.hero-sign-name {
   font-size: 24px;
-  transition: background 0.15s ease;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 4px;
 }
 
-.back-button:active {
-  background: var(--surface);
+.hero-sign-meta {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 16px;
+  display: block;
 }
 
-.result-header-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text-primary);
+/* ==================== Star Rating ==================== */
+
+.star-rating {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
-.result-content {
+.star-rating .star-filled {
+  color: var(--gold);
+  font-size: 22px;
+  animation: starTwinkle 2s ease-in-out infinite;
+}
+
+.star-rating .star-empty {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 22px;
+}
+
+.grade-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==================== Fox Message (Speech Bubble) ==================== */
+
+.fox-message {
   padding: 24px 20px;
+  text-align: center;
+  animation: slideUp 0.5s ease 0.15s both;
 }
 
-/* ==================== Result Card ==================== */
+.fox-message-mascot {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 16px;
+  filter: drop-shadow(0 4px 12px rgba(26, 35, 126, 0.12));
+}
 
-.result-card {
+.speech-bubble {
+  position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-lg);
-  padding: 28px 20px 24px;
-  text-align: center;
-  margin-bottom: 20px;
-  animation: popIn 0.5s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.result-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--primary);
-}
-
-.result-sign-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.result-sign-emoji {
-  font-size: 28px;
-  line-height: 1;
-  color: var(--primary);
-}
-
-.result-sign-name {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.result-sign-date {
-  font-size: 12px;
-  color: var(--text-tertiary);
-}
-
-/* Grade badge — 72px with glow */
-.result-grade {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 8px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  font-weight: 900;
-  color: #FFFFFF;
-  position: relative;
-  z-index: 1;
-}
-
-.result-grade::after {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: inherit;
-  opacity: 0.25;
-  z-index: -1;
-  animation: gradeGlow 2s ease-in-out infinite;
-}
-
-.result-grade.S { background: #F59E0B; }
-.result-grade.A { background: #1A237E; }
-.result-grade.B { background: #3B82F6; }
-.result-grade.C { background: #9CA3AF; }
-.result-grade.D { background: #6B7280; }
-
-/* Small grade badge — positioned after mascot */
-.result-grade-badge {
-  width: 36px;
-  height: 36px;
-  margin: 0 auto 8px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: 900;
-  color: #FFFFFF;
-}
-
-.result-grade-badge.S { background: #F59E0B; }
-.result-grade-badge.A { background: #1A237E; }
-.result-grade-badge.B { background: #3B82F6; }
-.result-grade-badge.C { background: #9CA3AF; }
-.result-grade-badge.D { background: #6B7280; }
-
-.result-grade-label {
-  font-size: 13px;
-  font-weight: 600;
+  padding: 16px 20px;
   margin-bottom: 16px;
+  box-shadow: var(--shadow);
 }
 
-.result-title {
-  font-size: 20px;
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--border);
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid var(--bg-card);
+}
+
+.speech-title {
+  font-size: 17px;
   font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-  line-height: 1.3;
+  color: var(--primary);
+  line-height: 1.4;
 }
 
-.result-description {
+.fortune-body {
   font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.7;
   text-align: left;
   padding: 16px;
-  background: var(--surface);
+  background: var(--bg-light);
   border-radius: var(--radius-xs);
   word-break: keep-all;
 }
 
-/* ==================== Scores Section ==================== */
+/* ==================== Section Heading ==================== */
 
-.scores-section {
-  margin-top: 24px;
-  text-align: left;
-}
-
-.scores-title {
+.section-heading {
   font-size: 15px;
   font-weight: 700;
   color: var(--text-primary);
@@ -541,37 +554,46 @@ body {
   gap: 6px;
 }
 
-.score-row {
+/* ==================== Energy Section (Star Scale) ==================== */
+
+.energy-section {
+  padding: 0 20px;
+  margin-bottom: 24px;
+  animation: slideUp 0.5s ease 0.25s both;
+}
+
+.energy-row {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
 }
 
-.score-label {
+.energy-label {
   font-size: 13px;
   font-weight: 600;
   color: var(--text-secondary);
-  width: 56px;
+  width: 50px;
   flex-shrink: 0;
 }
 
-.score-bar-bg {
+.energy-stars {
+  display: flex;
+  gap: 3px;
   flex: 1;
-  height: 8px;
-  background: var(--surface);
-  border-radius: 4px;
-  overflow: hidden;
 }
 
-.score-bar-fill {
-  height: 100%;
-  border-radius: 4px;
-  transition: width 1s ease-out;
-  animation: barFillIn 1s ease-out;
+.energy-stars .star-filled {
+  color: var(--gold);
+  font-size: 18px;
 }
 
-.score-value {
+.energy-stars .star-empty {
+  color: var(--surface);
+  font-size: 18px;
+}
+
+.energy-value {
   font-size: 13px;
   font-weight: 700;
   color: var(--text-primary);
@@ -580,93 +602,96 @@ body {
   flex-shrink: 0;
 }
 
-/* ==================== Lucky Items Section ==================== */
+/* ==================== Compass Section (Horizontal Chips) ==================== */
 
-.lucky-section {
-  margin-top: 24px;
-  text-align: left;
+.compass-section {
+  padding: 0 20px;
+  margin-bottom: 24px;
+  animation: slideUp 0.5s ease 0.35s both;
 }
 
-.lucky-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 14px;
+.compass-chips {
   display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.lucky-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
-.lucky-item {
+.compass-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.compass-chip {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 8px;
   background: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-xs);
-  padding: 12px;
-  text-align: center;
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow);
 }
 
-.lucky-item-icon {
-  font-size: 20px;
-  margin-bottom: 4px;
+.chip-icon {
+  color: var(--primary);
+  display: flex;
+  align-items: center;
 }
 
-.lucky-item-label {
-  font-size: 11px;
-  color: var(--text-tertiary);
-  margin-bottom: 2px;
-}
-
-.lucky-item-value {
+.chip-value {
   font-size: 14px;
   font-weight: 700;
-  color: #D4A017;
+  color: var(--primary);
 }
 
-/* ==================== Advice Section ==================== */
-
-.advice-section {
-  margin-top: 24px;
-  text-align: left;
+.chip-label {
+  font-size: 10px;
+  color: var(--text-tertiary);
 }
 
-.advice-card {
-  background: rgba(26, 35, 126, 0.04);
-  border: 1px solid rgba(26, 35, 126, 0.08);
-  border-radius: var(--radius-sm);
+/* ==================== Fox Tip ==================== */
+
+.fox-tip {
+  margin: 0 20px 24px;
   padding: 16px;
+  background: rgba(124, 77, 255, 0.06);
+  border: 1px solid rgba(124, 77, 255, 0.12);
+  border-radius: var(--radius-sm);
   display: flex;
   gap: 12px;
   align-items: flex-start;
+  animation: slideUp 0.5s ease 0.45s both;
 }
 
-.advice-icon {
-  font-size: 20px;
+.fox-tip-icon {
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   margin-top: 2px;
 }
 
-.advice-text {
+.fox-tip-text {
   font-size: 14px;
-  color: var(--text-secondary);
+  font-weight: 500;
+  color: var(--accent-dark);
   line-height: 1.6;
   word-break: keep-all;
 }
 
-/* ==================== Premium Section ==================== */
+/* ==================== Match Section (VS Matching) ==================== */
 
-.premium-section {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.match-section {
+  padding: 0 20px;
+  margin-bottom: 24px;
+  animation: slideUp 0.5s ease 0.55s both;
 }
 
-.premium-card {
+.match-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -675,46 +700,94 @@ body {
   box-shadow: var(--shadow);
 }
 
-.premium-card.unlocked {
-  animation: slideUp 0.4s ease;
-}
-
-.premium-unlocked-content {
-  text-align: left;
-}
-
-.premium-content-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-primary);
+.match-vs {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 10px;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
-.premium-content-text {
+.match-sign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.match-sign-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(26, 35, 126, 0.06);
+  border: 2px solid var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+.match-sign-circle.compat {
+  border-color: var(--pink);
+  background: rgba(240, 98, 146, 0.06);
+  color: var(--pink);
+}
+
+.match-sign-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.vs-badge {
+  font-size: 24px;
+  animation: heartPulse 1.5s ease-in-out infinite;
+}
+
+.match-text {
   font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.7;
+  text-align: left;
   word-break: keep-all;
+  animation: slideUp 0.4s ease;
 }
 
-.premium-locked-icon {
-  margin-bottom: 12px;
-}
-
-.premium-locked-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-secondary);
-  margin-bottom: 4px;
-}
-
-.premium-locked-desc {
-  font-size: 13px;
+.ad-notice {
+  font-size: 12px;
   color: var(--text-tertiary);
-  margin-bottom: 16px;
+  margin-top: 8px;
+}
+
+/* ==================== Buttons ==================== */
+
+.button-group {
+  padding: 0 20px;
+  padding-bottom: 40px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+  border: none;
+  background: var(--primary);
+  color: #FFFFFF;
+  box-shadow: 0 2px 12px rgba(26, 35, 126, 0.2);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  opacity: 0.9;
 }
 
 .btn-premium {
@@ -743,39 +816,6 @@ body {
 .btn-premium:disabled {
   opacity: 0.4;
   cursor: not-allowed;
-}
-
-/* ==================== Buttons ==================== */
-
-.button-group {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-bottom: 40px;
-}
-
-.btn-primary {
-  width: 100%;
-  padding: 16px;
-  border-radius: var(--radius-sm);
-  font-size: 16px;
-  font-weight: 700;
-  font-family: var(--font);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: opacity 0.15s ease, transform 0.1s ease;
-  border: none;
-  background: var(--primary);
-  color: #FFFFFF;
-  box-shadow: 0 2px 12px rgba(26, 35, 126, 0.2);
-}
-
-.btn-primary:active {
-  transform: scale(0.98);
-  opacity: 0.9;
 }
 
 .ad-badge {
@@ -810,10 +850,10 @@ body {
 @keyframes popIn {
   0% {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   60% {
-    transform: scale(1.02);
+    transform: scale(1.01);
   }
   100% {
     opacity: 1;
@@ -826,21 +866,41 @@ body {
   50% { transform: translateY(-8px); }
 }
 
-@keyframes mascotBounce {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-12px) scale(1.05); }
+@keyframes flyAcross {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px) translateY(20px) rotate(-10deg);
+  }
+  30% {
+    opacity: 1;
+    transform: translateX(0) translateY(-10px) rotate(5deg);
+  }
+  60% {
+    transform: translateX(10px) translateY(-15px) rotate(-3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
 }
 
 @keyframes dotPulse {
   0%, 80%, 100% { transform: scale(0); opacity: 0; }
   40% { transform: scale(1); opacity: 1; }
-}
-
-@keyframes barFillIn {
-  from { width: 0 !important; }
-}
-
-@keyframes gradeGlow {
-  0%, 100% { opacity: 0.25; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.08); }
 }
