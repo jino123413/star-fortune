@@ -8,6 +8,9 @@ import {
   CompassChipIcon,
   ClockChipIcon,
 } from './BrandIcons';
+import BannerAd from './BannerAd';
+
+const BANNER_AD_GROUP_ID = 'ait.v2.live.8109ebbf865241fd';
 
 interface ResultScreenProps {
   result: FortuneResult;
@@ -200,6 +203,11 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
             </>
           )}
         </div>
+      </div>
+
+      {/* Banner Ad */}
+      <div style={{ padding: '16px 0' }}>
+        <BannerAd adGroupId={BANNER_AD_GROUP_ID} />
       </div>
 
       {/* Bottom Button */}
